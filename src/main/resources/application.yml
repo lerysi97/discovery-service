@@ -2,22 +2,11 @@ server:
   port: 8761
   servlet:
     context-path: /eureka
-
-eureka:
-  instance:
-    hostname: discovery-service
-    appname: discovery-service
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 30
-  server:
-    eviction-interval-timer-in-ms: 5000
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
 spring:
   application:
-    name: discovery-service
+    name: DISCOVERY-SERVICE
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://host.docker.internal:8761/eureka/
